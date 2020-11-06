@@ -64,6 +64,11 @@ public class Posicion {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Posicion [fila=" + fila + ", columna=" + columna + "]";
+	}
 	
 }
 
