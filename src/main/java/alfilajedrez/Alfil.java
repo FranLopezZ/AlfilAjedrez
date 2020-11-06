@@ -9,6 +9,20 @@ public class Alfil {
 		this.posicion = new Posicion(8, 'f');
 	}
 	
+	public Alfil(Color color) {
+		switch (color) {
+		case BLANCO:
+			this.posicion = new Posicion(1, 'f');
+			break;
+		case NEGRO:
+			this.posicion = new Posicion(8, 'f');
+			break;
+		default:
+			break;
+		}
+		this.color = color;
+	}
+	
 	public Color getColor() {
 		return color;
 	}
