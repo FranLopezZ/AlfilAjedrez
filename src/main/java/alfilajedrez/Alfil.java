@@ -23,6 +23,30 @@ public class Alfil {
 		this.color = color;
 	}
 	
+	public Alfil(Color color, char columna) {
+		if (columna < 'a' || columna > 'h') {
+			throw new IllegalArgumentException("La columna es incorrecta. Las columnas van desde la 'a' a la 'h'.");
+		}
+		if (columna == 'c') {
+		} else {
+			if (columna == 'f') {
+			} else {
+				throw new IllegalArgumentException("La columna del alfil es incorrecta. El alfil solo puede estar en las columnas 'c' o 'f'");
+			}
+		}
+		switch (color) {
+			case BLANCO:
+				this.posicion = new Posicion(1, columna);
+				break;
+			case NEGRO:
+				this.posicion = new Posicion(8, columna);
+				break;
+			default:
+				break;
+			}
+		this.color = color;
+	}
+	
 	public Color getColor() {
 		return color;
 	}
