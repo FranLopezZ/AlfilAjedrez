@@ -1,5 +1,7 @@
 package alfilajedrez;
 
+import javax.naming.OperationNotSupportedException;
+
 public class Alfil {
 	private Color color;
 	private Posicion posicion;
@@ -68,4 +70,46 @@ public class Alfil {
 		}
 		this.posicion = new Posicion(posicion);
 	}
+	
+	public void mover(Direccion direccion, int pasos) throws OperationNotSupportedException {
+		if (pasos <= 0) {
+			throw new IllegalArgumentException("El número de pasos debe ser mayor que cero.");
+		}
+		if (direccion == null) {
+			throw new IllegalArgumentException("La direccion no puede ser nula.");
+		}
+		switch (direccion) {
+		case ARRIBA_DERECHA:
+			try {
+				posicion = new Posicion((posicion.getFila()+pasos),(char)(posicion.getColumna()+pasos));
+			} catch (IllegalArgumentException e) {
+				throw new OperationNotSupportedException("Movimiento no permitido: " + e.getMessage());
+			}
+			break;
+		case ARRIBA_IZQUIERDA:
+			try {
+				posicion = new Posicion((posicion.getFila()+pasos),(char)(posicion.getColumna()-pasos));
+			} catch (IllegalArgumentException e) {
+				throw new OperationNotSupportedException("Movimiento no permitido: " + e.getMessage());
+			}
+			break;
+		case ABAJO_DERECHA:
+			try {
+				posicion = new Posicion((posicion.getFila()-pasos),(char)(posicion.getColumna()+pasos));
+			} catch (IllegalArgumentException e) {
+				throw new OperationNotSupportedException("Movimiento no permitido: " + e.getMessage());
+			}
+			break;
+		case ABAJO_IZQUIERDA:
+			try {
+				posicion = new Posicion((posicion.getFila()-pasos),(char)(posicion.getColumna()-pasos));
+			} catch (IllegalArgumentException e) {
+				throw new OperationNotSupportedException("Movimiento no permitido: " + e.getMessage());
+			}
+			break;
+		default:
+			break;
+		}
+	}
+	
 }
