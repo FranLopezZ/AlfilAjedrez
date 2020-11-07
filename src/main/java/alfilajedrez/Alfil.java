@@ -139,5 +139,10 @@ public class Alfil {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Alfil [color=" + color + ", posicion=" + posicion + "]";
+	}
 	
 }
