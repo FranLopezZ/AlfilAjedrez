@@ -71,6 +71,11 @@ public class MainApp {
 		return color;
 	}
 	
+	private static void crearAlfilColorColumna() {
+		alfil = new Alfil(elegirColor(), elegirColumnaInicial());
+		System.out.println("\nSe ha creado un nuevo alfil con el color y columna elegida\n " + alfil);
+	}
+	
 	private static char elegirColumnaInicial() {
 		char columna = 0;
 		
