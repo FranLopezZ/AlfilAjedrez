@@ -34,6 +34,11 @@ public class MainApp {
 		return opcion;
 	}
 	
+	private static void crearAlfilDefecto() {
+		alfil = new Alfil();
+		System.out.println("\nSe ha creado un nuevo alfil por defecto\n " + alfil);
+	}
+	
 	private static Color elegirColor() {
 		System.out.println("\nEscoge un color para el alfil: ");
 		System.out.println("1. Color Blanco.");
