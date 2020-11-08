@@ -33,4 +33,31 @@ public class MainApp {
 		}
 		return opcion;
 	}
+	
+	private static Color elegirColor() {
+		System.out.println("\nEscoge un color para el alfil: ");
+		System.out.println("1. Color Blanco.");
+		System.out.println("2. Color Negro");
+		System.out.println("Escoge una opción: ");
+		
+		int opcionColor = Entrada.entero();
+		
+		while (opcionColor < 1 || opcionColor > 2) {
+			System.out.println("Color incorrecto. Vuelve a intentarlo.");
+			System.out.println("\nEscoge un color para el alfil: ");
+			System.out.println("1. Color Blanco.");
+			System.out.println("2. Color Negro");
+			System.out.println("Escoge una opción: ");
+			opcionColor = Entrada.entero();
+		}
+		
+		Color color = null;
+		
+		if(opcionColor==1) {
+			color = color.BLANCO;
+		} else if(opcionColor==2) {
+			color = color.NEGRO;
+		}
+		return color;
+	}
 }
