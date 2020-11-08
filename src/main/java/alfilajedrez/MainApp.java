@@ -76,4 +76,12 @@ public class MainApp {
 		}
 		return columna;
 	}
+	
+	private static void mostrarMenuDirecciones() {
+		System.out.println("Los movimientos del alfil son los siguientes: ");
+		System.out.println("1. ARRIBA_DERECHA");
+		System.out.println("2. ABAJO_DERECHA");
+		System.out.println("3. ABAJO_IZQUIERDA");
+		System.out.println("4. ARRIBA_IZQUIERDA");
+	}
 }
