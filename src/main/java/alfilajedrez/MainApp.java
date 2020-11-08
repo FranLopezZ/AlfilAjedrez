@@ -84,4 +84,25 @@ public class MainApp {
 		System.out.println("3. ABAJO_IZQUIERDA");
 		System.out.println("4. ARRIBA_IZQUIERDA");
 	}
+	
+	private static Direccion elegirDireccion() {
+		Direccion movimiento = null;
+		int mover;
+		
+		do {
+			System.out.println("Escoge el movimiento de tu alfil: ");
+			mover = Entrada.entero();
+		} while (mover < 1 || mover > 4);
+		
+		if (mover==1) {
+			movimiento = Direccion.ARRIBA_DERECHA;
+		} else if (mover==2) {
+			movimiento = Direccion.ABAJO_DERECHA;
+		} else if (mover==3) {
+			movimiento = Direccion.ABAJO_IZQUIERDA;
+		} else {
+			movimiento = Direccion.ARRIBA_IZQUIERDA;
+		}
+		return movimiento;
+	}
 }
