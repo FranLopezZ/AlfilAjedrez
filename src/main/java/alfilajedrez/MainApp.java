@@ -60,4 +60,20 @@ public class MainApp {
 		}
 		return color;
 	}
+	
+	private static char elegirColumnaInicial() {
+		char columna = 0;
+		
+		System.out.println("\nElige la columna inicial para el alfil ('c' o 'f': ");
+		System.out.println("Escoge una opción: ");
+		columna = Entrada.caracter();
+		
+		while (columna != 'c' && columna != 'f') {
+			System.out.println("Columna incorrecta. Vuelve a intentarlo.");
+			System.out.println("\nElige la columna inicial para el alfil ('c' o 'f': ");
+			System.out.println("Escoge una opción: ");
+			columna = Entrada.caracter();
+		}
+		return columna;
+	}
 }
