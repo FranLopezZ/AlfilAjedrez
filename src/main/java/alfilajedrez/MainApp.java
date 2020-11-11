@@ -1,11 +1,18 @@
 package alfilajedrez;
+
 import javax.naming.OperationNotSupportedException;
 
 import org.iesalandalus.programacion.utilidades.Entrada;
 
 public class MainApp {
 	private static Alfil alfil = null;
-
+	
+	public static void main(String[] args) {
+		System.out.println("Alfil Ajedrez");
+		mostrarMenu();
+		
+	}
+	
 	private static void mostrarAlfil() {
 		System.out.println(alfil);
 	}
@@ -16,6 +23,7 @@ public class MainApp {
 		System.out.println("3. Crear un alfil de un color en una columna inicial dada ('c' o 'f')");
 		System.out.println("4. Mover el alfil.");
 		System.out.println("5. Salir.");
+		ejecutarOpcion(elegirOpcion());
 	}
 	private static int elegirOpcion() {
 		int opcion;
@@ -136,6 +144,7 @@ public class MainApp {
 		System.out.println("2. ABAJO_DERECHA");
 		System.out.println("3. ABAJO_IZQUIERDA");
 		System.out.println("4. ARRIBA_IZQUIERDA");
+		mover();
 	}
 	
 	private static Direccion elegirDireccion() {
