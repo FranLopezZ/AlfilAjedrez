@@ -35,6 +35,30 @@ public class MainApp {
 		return opcion;
 	}
 	
+	private static void ejecutarOpcion(int opcion) {
+		switch (opcion) {
+		case 1:
+			crearAlfilDefecto();
+			mostrarMenu();
+			break;
+		case 2:
+			crearAlfilColor();
+			mostrarMenu();
+			break;
+		case 3:
+			crearAlfilColorColumna();
+			mostrarMenu();
+			break;
+		case 4:
+			mostrarMenuDirecciones();
+			break;
+		case 5:
+			System.out.println("Saliendo del programa.");
+			System.exit(0);
+			break;
+		}
+	}
+	
 	private static void crearAlfilDefecto() {
 		alfil = new Alfil();
 		System.out.println("\nSe ha creado un nuevo alfil por defecto\n " + alfil);
