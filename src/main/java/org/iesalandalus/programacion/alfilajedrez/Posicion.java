@@ -1,4 +1,4 @@
-package alfilajedrez;
+package org.iesalandalus.programacion.alfilajedrez;
 
 public class Posicion {
 	private int fila;
