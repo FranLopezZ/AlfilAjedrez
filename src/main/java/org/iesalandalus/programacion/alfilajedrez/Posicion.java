@@ -12,8 +12,15 @@ public class Posicion {
 	}
 	
 	public Posicion(Posicion posicion) {
-		this.fila = posicion.getFila();
-		this.columna = posicion.getColumna();
+		try {
+			if(posicion==null) {
+				throw new IllegalArgumentException();
+			}
+		}catch(IllegalArgumentException e) {
+			System.out.println("ERROR: No es posible copiar una posición nula.");
+		}
+		posicion.fila=this.getFila();
+		posicion.columna=this.getColumna();
 	}
 
 	public int getFila() {
@@ -22,7 +29,7 @@ public class Posicion {
 	
 	private void setFila(int fila) {
 		if (fila < 1 || fila > 8) {
-			throw new IllegalArgumentException("La fila es incorrecta. Las filas van desde la 1 a la 8.");
+			throw new IllegalArgumentException("ERROR: Fila no válida.");
 		} else {
 			this.fila = fila;
 		}
@@ -34,7 +41,7 @@ public class Posicion {
 	
 	private void setColumna(char columna) {
 		if (columna < 'a' || columna > 'h') {
-			throw new IllegalArgumentException("La columna es incorrecta. Las columnas van desde la 'a' a la 'h'.");
+			throw new IllegalArgumentException("ERROR: Columna no válida.");
 		} else {
 			this.columna = columna;
 		}
@@ -67,7 +74,7 @@ public class Posicion {
 
 	@Override
 	public String toString() {
-		return "Posicion [fila=" + fila + ", columna=" + columna + "]";
+		return "fila=" + fila + ", columna=" + columna;
 	}
 	
 }
