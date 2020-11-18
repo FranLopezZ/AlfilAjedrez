@@ -12,6 +12,9 @@ public class Alfil {
 	}
 	
 	public Alfil(Color color) {
+		if (color == null) {
+			throw new NullPointerException("ERROR: No se puede asignar un color nulo.");
+		}
 		switch (color) {
 		case BLANCO:
 			this.posicion = new Posicion(1, 'f');
@@ -26,14 +29,17 @@ public class Alfil {
 	}
 	
 	public Alfil(Color color, char columna) {
+		if (color == null) {
+			throw new NullPointerException("ERROR: No se puede asignar un color nulo.");
+		}
 		if (columna < 'a' || columna > 'h') {
-			throw new IllegalArgumentException("La columna es incorrecta. Las columnas van desde la 'a' a la 'h'.");
+			throw new IllegalArgumentException("ERROR: Columna no válida.");
 		}
 		if (columna == 'c') {
 		} else {
 			if (columna == 'f') {
 			} else {
-				throw new IllegalArgumentException("La columna del alfil es incorrecta. El alfil solo puede estar en las columnas 'c' o 'f'");
+				throw new IllegalArgumentException("ERROR: Columna no válida.");
 			}
 		}
 		switch (color) {
@@ -73,38 +79,38 @@ public class Alfil {
 	
 	public void mover(Direccion direccion, int pasos) throws OperationNotSupportedException {
 		if (pasos <= 0) {
-			throw new IllegalArgumentException("El número de pasos debe ser mayor que cero.");
+			throw new IllegalArgumentException("ERROR: El número de pasos debe ser positivo.");
 		}
 		if (direccion == null) {
-			throw new IllegalArgumentException("La direccion no puede ser nula.");
+			throw new NullPointerException("ERROR: La dirección no puede ser nula.");
 		}
 		switch (direccion) {
 		case ARRIBA_DERECHA:
 			try {
 				posicion = new Posicion((posicion.getFila()+pasos),(char)(posicion.getColumna()+pasos));
 			} catch (IllegalArgumentException e) {
-				throw new OperationNotSupportedException("Movimiento no permitido: " + e.getMessage());
+				throw new OperationNotSupportedException("ERROR: Movimiento no válido (se sale del tablero).");
 			}
 			break;
 		case ARRIBA_IZQUIERDA:
 			try {
 				posicion = new Posicion((posicion.getFila()+pasos),(char)(posicion.getColumna()-pasos));
 			} catch (IllegalArgumentException e) {
-				throw new OperationNotSupportedException("Movimiento no permitido: " + e.getMessage());
+				throw new OperationNotSupportedException("ERROR: Movimiento no válido (se sale del tablero).");
 			}
 			break;
 		case ABAJO_DERECHA:
 			try {
 				posicion = new Posicion((posicion.getFila()-pasos),(char)(posicion.getColumna()+pasos));
 			} catch (IllegalArgumentException e) {
-				throw new OperationNotSupportedException("Movimiento no permitido: " + e.getMessage());
+				throw new OperationNotSupportedException("ERROR: Movimiento no válido (se sale del tablero).");
 			}
 			break;
 		case ABAJO_IZQUIERDA:
 			try {
 				posicion = new Posicion((posicion.getFila()-pasos),(char)(posicion.getColumna()-pasos));
 			} catch (IllegalArgumentException e) {
-				throw new OperationNotSupportedException("Movimiento no permitido: " + e.getMessage());
+				throw new OperationNotSupportedException("ERROR: Movimiento no válido (se sale del tablero).");
 			}
 			break;
 		default:
@@ -142,7 +148,7 @@ public class Alfil {
 
 	@Override
 	public String toString() {
-		return "Alfil [color=" + color + ", posicion=" + posicion + "]";
+		return posicion + ", color=" + color ;
 	}
 	
 }
