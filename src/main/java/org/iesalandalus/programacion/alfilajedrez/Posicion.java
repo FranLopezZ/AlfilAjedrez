@@ -15,8 +15,8 @@ public class Posicion {
 		if (posicion == null) {
 			throw new NullPointerException("ERROR: No es posible copiar una posición nula.");
 		}
-		posicion.fila=this.getFila();
-		posicion.columna=this.getColumna();
+		this.fila = posicion.getFila();
+		this.columna = posicion.getColumna();
 	}
 
 	public int getFila() {
